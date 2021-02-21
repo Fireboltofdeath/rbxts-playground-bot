@@ -11,7 +11,6 @@ use groups::*;
 use serenity::client::Client;
 use serenity::framework::standard::StandardFramework;
 
-// https://discord.com/api/oauth2/authorize?client_id=813005375728386070&permissions=10240&scope=bot
 #[tokio::main]
 async fn main() {
     let framework = StandardFramework::new()
