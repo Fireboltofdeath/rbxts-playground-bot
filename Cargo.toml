@@ -1,0 +1,15 @@
+[package]
+name = "rbxts-playground-bot"
+version = "0.1.0"
+authors = ["Firebolt <24422634+Fireboltofdeath@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serenity = "0.10"
+tokio = { version = "1", features = ["full"] }
+linkify = "0.5"
+url = "2"
+lz-str = "0.1"
+dotenv = "0.15"
