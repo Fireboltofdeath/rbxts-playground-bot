@@ -29,17 +29,19 @@ impl EventHandler for Handler {
             let url = data.0;
             let link = data.1;
             if let Some(Domain(domain)) = url.host() {
-                if (domain == "roblox-ts.com" || domain == "www.roblox-ts.com") {
-                    if (link.start() == 0 && link.end() == text.len()) {
-                        message.delete(&ctx).await.ok();
+                if domain == "roblox-ts.com" || domain == "www.roblox-ts.com" {
+                    if url.path().starts_with("/playground") {
+                        if (link.start() == 0 && link.end() == text.len()) {
+                            message.delete(&ctx).await.ok();
+                        }
+                        send_url_embed(
+                            "[Shortened Playground Link]",
+                            &url.to_string(),
+                            &ctx,
+                            &message,
+                        )
+                        .await;
                     }
-                    send_url_embed(
-                        "[Shortened Playground Link]",
-                        &url.to_string(),
-                        &ctx,
-                        &message,
-                    )
-                    .await;
                 }
             }
         }
